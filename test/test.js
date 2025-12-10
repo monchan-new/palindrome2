@@ -33,7 +33,11 @@ describe("Phrase", function() {
       assert.strictEqual(punctuatedPalindrome.letters(), "MadamImAdam");
     });
 
-    it("マッチしない場合は空文字列を返す", function() {
+    // it("マッチしない場合は空文字列を返す", function() {
+    //   let noLetters = new Phrase("1234.56");
+    //   assert.strictEqual(noLetters.letters(), "");
+    // });
+    it("マッチしない場合は空文字列を返す", () => {
       let noLetters = new Phrase("1234.56");
       assert.strictEqual(noLetters.letters(), "");
     });
