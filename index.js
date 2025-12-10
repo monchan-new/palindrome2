@@ -1,3 +1,5 @@
+module.exports = Phrase;
+
 // (Stringクラスのprototypeに)reverse()メソッドを追加してすべてのStringオブジェクトで使えるようにする。
 String.prototype.reverse = function() {
   return Array.from(this).reverse().join("");
