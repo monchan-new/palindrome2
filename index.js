@@ -17,7 +17,21 @@ function Phrase(content) {
   this.processor = (string) => string.toLowerCase();
 
   // パリンドロームのテスト用に、変換したcontentを返すメソッド
-  this.processedContent = () => this.processor(this.content);
+  this.processedContent = () => this.processor(this.letters());
+
+  // コンテンツの文字だけを返す
+  // 利用例: new Phrase("Hello, world!").letters() === "Helloworld"
+  this.letters = () => this.content.match(/[a-z]/gi).join("") || [];
+  // matchでregExにglobalオプションを付けると該当の複数要素を直接配列にして返してくれる。しかし、該当要素がない場合には空の配列ではなくNullを返してしまうため、Null=Falseであることを利用し、||(OR論理子)でその場合に空の配列[]を返すようにする。
+
+  // もっと直感的な記述は下記の通り
+  // this.letters = () => {
+  //   const letterRegex = /[a-z]/i; // iフラグで大文字小文字を無視
+  //   return Array.from(this.content).filter(c => c.match(letterRegex)).join("");
+  // }
+  // 省略形は下記の通り
+  // this.letters = () => Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
+
 
   // パリンドロームならtrueを、違うならfalseを返すメソッド
   this.palindrome = () => this.processedContent() === this.processedContent().reverse();
