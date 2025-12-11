@@ -1,7 +1,7 @@
 {
   "name": "monchan-palindrome",
-  "version": "0.1.0",
-  "description": "palindrome detector",
+  "version": "0.2.0",
+  "description": "palindrome detector w/ null check",
   "main": "index.js",
   "scripts": {
     "test": "mocha"

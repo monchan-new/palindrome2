@@ -25,6 +25,10 @@ describe("Phrase", function() {
       assert(punctuatedPalindrome.palindrome());
     });
 
+    it("空文字の場合にはfalseを返す", () => {
+      let emptyPhrase = new Phrase("");
+      assert(!emptyPhrase.palindrome());
+    });
   });
 
   describe("#letters", function() {

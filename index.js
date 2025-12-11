@@ -35,7 +35,15 @@ function Phrase(content) {
 
 
   // パリンドロームならtrueを、違うならfalseを返すメソッド
-  this.palindrome = () => this.processedContent() === this.processedContent().reverse();
+  this.palindrome = () => {
+    if(this.processedContent()) { 
+      return this.processedContent() === this.processedContent().reverse();
+    } else {
+    // 空文字の場合には必ずFalseを返す   
+      return false;
+    }
+  }
+    
 }
 
 // TranslatedPhraseオブジェクトを定義する
